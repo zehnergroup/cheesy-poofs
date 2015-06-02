@@ -111,8 +111,9 @@ exports.register = (server, options, next) => {
         });
 
         var AppContainer = React.createElement(
-          Marty.ApplicationContainer, {app: app},
-          React.createElement(Handler, ...state.params)
+          Marty.ApplicationContainer, // Outer element
+          {app: app}, // Props
+          React.createElement(Handler, ...state.params) // Children
         );
 
         var renderOptions = {
