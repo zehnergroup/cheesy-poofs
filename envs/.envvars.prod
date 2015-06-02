@@ -1,0 +1,7 @@
+## This file will be included by our bin/dev.sh
+## file and can be used to overload or add an ENV
+## vars before our app starts
+
+export DEBUGGER=false       # Options: [true, false]
+export DEBUG_BRK=false      # Options: [true, false]
+export NODE_ENV=production  # Options: [local, dev, staging, production]

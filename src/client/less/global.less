@@ -1,0 +1,166 @@
+
+* {
+  position: relative;
+}
+
+html { font-size: 62.5%; }
+
+body {
+  .univers-cond-light;
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  background-color: @firePink;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  .univers-cond-reg;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: @h2FontSize;
+  line-height: @h2LineHeight;
+
+  @media (max-width: @screen-xs-max) {
+    font-size: @h2FontSize - 1rem;
+    line-height: @h2LineHeight - 1rem;
+  }
+}
+
+h3 {
+  font-size: @h3FontSize;
+  line-height: @h3LineHeight;
+}
+
+h4 {
+  font-size: @h4FontSize;
+  line-height: @h4LineHeight;
+}
+
+#app {
+  background-color: #fff;
+}
+
+.page-container {
+  max-width: @pageWidth;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.page-background {
+  .clearfix;
+  background: #fff;
+  transform:translateZ(unit(@contentZIndex, px));
+  z-index: @contentZIndex;
+  overflow: hidden;
+
+  &.alternative {
+    background-color: @lightGrey;
+  }
+}
+
+// Global Aspect Ratio Box Styles
+.abox {
+  position: relative;
+
+  .abox-content {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+  }
+
+  // use this on cases where you don't want X axis paddings on phones
+  // and you want natural height instead
+  @media (max-width: @screen-xs-max) {
+    &.bbox{
+      padding-top: 0 !important;
+      padding-bottom: 20px !important;
+      // float: none !important;
+      display: block  !important;
+      .abox-content{
+        display: block  !important;
+        position: static;
+        top: auto; bottom: auto; left: auto; right: auto;
+        .vertical-align{
+          position: static !important;
+          top: auto !important;
+          transform: none !important;
+        }
+        .align-bottom{
+          position: static !important;
+          top: auto; bottom: auto; left: auto; right: auto;
+        }
+      }
+    }
+  }
+
+}
+
+article.page {
+  min-height: 1500px;
+  @media (max-width: @screen-xs-max) {
+    &:not(.home) {
+      padding-top: 70px;
+    }
+  }
+}
+
+#main_container {
+  .clearfix;
+
+  >article {
+    min-height: 1500px;
+  }
+
+  #loader {
+    display: none;
+  }
+
+  &.loading {
+    #loader {
+      display: block;
+      position: absolute;
+      background: #fff;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform:translateZ(5000px);
+      z-index: 5000;
+      opacity: 1;
+    }
+  }
+}
+
+// Buttons
+.square-button {
+  border: 1px solid #000;
+  color: #000;
+  display: inline-block;
+  font-size: 3.23rem;
+  padding: 16px 0;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+  &:hover {
+    background-color: #000;
+    border-color: #fff;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.black-button {
+  background: #000;
+  border: 0;
+  color: #fff;
+  font-size: 1.6rem;
+  height: 44px;
+  outline: none;
+  text-transform: uppercase;
+  &:active {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+  }
+}

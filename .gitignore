@@ -1,0 +1,5 @@
+.DS_Store
+.vagrant
+node_modules
+/.envvars
+assets/build

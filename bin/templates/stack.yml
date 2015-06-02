@@ -1,0 +1,9 @@
+frontend:
+  image: quay.io/zehnergroup/zg-site-frontend:<%= tag_name %>
+  ports:
+    - "8003"
+  tags:
+    - zg-site-qa-cluster
+  deployment_strategy: every_node
+  roles:
+    - global
