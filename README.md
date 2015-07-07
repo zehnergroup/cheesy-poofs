@@ -1,6 +1,6 @@
-# ZG Site Front-End
+# Cheesy Poofs
 
-This app represents the front-end of the ZG Site. The app is built on top of the [React](http://facebook.github.io/react) front-end framework, and uses [Hapi](http://hapijs.com/) as a web server for serving assets and pre-rendering the pages for SEO.
+This boilerplate / project starter combines React + Marty (Flux) + Hapi + Docker. This full stack frameworks support React's powerful isomorphic capabilities to do server side rendering of the React based client side app. For both development and deployment, the stack has been built to run inside a Docker container. Have fun!
 
 ## Core libraries
 
@@ -8,7 +8,6 @@ This app represents the front-end of the ZG Site. The app is built on top of the
 
 * [React](http://facebook.github.io/react): Component Framework
 * [react-router](https://github.com/rackt/react-router): URL Router
-* [Symantic-Grid](http://semantic.gs/): LESS Based grid system
 
 ### Flux
 
