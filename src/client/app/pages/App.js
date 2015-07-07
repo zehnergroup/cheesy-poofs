@@ -5,13 +5,14 @@ import _ from 'lodash'
 import $ from 'jquery'
 import cx from 'classnames'
 import Immutable from 'immutable';
+import Hello from './Hello';
 
 // var {TransitionGroup} = React.addons;
 
 var App = module.exports = React.createClass({
 
   contextTypes: {
-    router: React.PropTypes.func,
+    router: React.PropTypes.object,
     marty: React.PropTypes.object
   },
 
@@ -74,28 +75,28 @@ var App = module.exports = React.createClass({
 
   render() {
 
-    var Loader;
-    var router        = this.context.router;
-    var allRoutes     = _.clone(router.getCurrentRoutes())
-    var currentRoute  = allRoutes.reverse()[0];
-    var mainContainerClasses = [
-      currentRoute.name,
+    let RouteHandler, routeName, mainContainerClasses;
+
+    if (this.props.children) {
+      routeName = this.props.children.props.route.name
+      RouteHandler = React.cloneElement(this.props.children, _.create(this.props, {appState: this.state, key: routeName}))
+    } else {
+      routeName = 'home'
+      RouteHandler = <Hello appState={this.state} key={routeName} {...this.props} />
+    }
+
+    mainContainerClasses = [
+      routeName,
       {
         ios: !this.state.layout.get('notIOS'),
         loading: this.state.layout.get('loading')
       }
     ]
 
-    if (this.state.layout.get('loading')) {
-      Loader = <div id="loader"></div>
-    }
-
     return (
       <div id="main_container" className={cx(mainContainerClasses)}>
-        {Loader}
-        <RouteHandler ref="router" appState={this.state} {...this.props} />
+        {RouteHandler}
       </div>
     );
   }
 });
-

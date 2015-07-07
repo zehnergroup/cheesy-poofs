@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
-import Router from 'react-router';
+import { Router } from 'react-router';
+import Location from 'react-router/lib/Location';
 import DocTitle from 'react-document-title';
 import DocMeta from '../../client/app/components/DocMeta';
 import Boom from 'boom';
@@ -94,26 +95,23 @@ exports.register = (server, options, next) => {
     path:'/{param*}',
     handler: (request, reply) => {
 
-      var router = Router.create({
-        location: request.url.href,
-        routes: options.routes,
-        onAbort: onAbort
-      });
+      var location = new Location(request.path, request.query);
 
-      if (!router.match(request.url.href)) {
-        return reply.continue();
-      }
+      Router.run(options.routes, location, (error, initialState, transition) => {
 
-      router.run(function (Handler, state) {
+        if (!initialState) {
+          return reply.continue();
+        }
+
         var app = new Application({
           req: request,
           res: reply
         });
 
-        var AppContainer = React.createElement(
-          Marty.ApplicationContainer, // Outer element
-          {app: app}, // Props
-          React.createElement(Handler, ...state.params) // Children
+        var AppContainer = (
+          <Marty.ApplicationContainer app={app}>
+            <Router {...initialState} />
+          </Marty.ApplicationContainer>
         );
 
         var renderOptions = {
@@ -125,6 +123,7 @@ exports.register = (server, options, next) => {
           .catch(onFailedToRender);
 
         function onRendered(renderResult) {
+
           var locals    = {};
           var markup    = renderResult.html;
           var metaData  = DocMeta.rewind();
@@ -150,8 +149,8 @@ exports.register = (server, options, next) => {
         }
 
         function onFailedToRender(error) {
-            console.log('Failed to render ' + request.url.href, error);
-            reply(Boom.wrap(error, 500));
+          console.log('Failed to render ' + request.url.href, error);
+          reply(Boom.wrap(error, 500));
         }
       });
 

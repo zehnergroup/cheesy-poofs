@@ -6,8 +6,10 @@ import $ from 'jquery'; global.jQuery = $;
 import React from 'react';
 import Marty from 'marty';
 import Application from './app';
-import Router from './router';
+import { Router } from 'react-router';
+import BrowserHistory from 'react-router/lib/BrowserHistory';
 import {ApplicationContainer} from 'marty';
+import routes from './routes'
 
 global.React = React; // For React Developer Tools
 global.Marty = Marty; // For Marty Developer Tools
@@ -20,11 +22,9 @@ if (process.env.NODE_ENV !== 'test') {
 
   app.rehydrate();
 
-  Router.run(function (Handler, state) {
-    React.render((
-      <ApplicationContainer app={app}>
-        <Handler {...state.params} />
-      </ApplicationContainer>
-    ), document.getElementById('app'));
-  });
+  React.render((
+    <ApplicationContainer app={app}>
+      <Router routes={routes} history={new BrowserHistory()} />
+    </ApplicationContainer>
+  ), document.getElementById('app'));
 }
