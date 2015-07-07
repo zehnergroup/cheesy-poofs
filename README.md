@@ -178,29 +178,3 @@ To run tests, run the following command from inside the container:
 ```bash
 npm test
 ```
-
-## Continuous Delivery
-
-The repo is setup with a continuous delivery pipeline. Any commits to the dev branch will automatically be built with Jenkins, and deployed out to the Docker cluster.
-
-Listen on Slack for notifcations of this activity.
-
-## Video Encoding
-
-Video encoding is being automated by AWS Lambda and Elastic Transcoder. When a video file is uploaded to s3://zg-site-video/source it triggers a Lambda function called `zg-site-video-encode`:
-
-https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions
-
-This function sends a job over to the Elastic Transcoder pipeline called `zg_site`:
-
-https://console.aws.amazon.com/elastictranscoder/home?region=us-west-2
-
-It is then encoded into MP4 and WebM formats. The file path of the encoded files will be of the following format:
-
-`https://s3-us-west-2.amazonaws.com/zg-site-video/encoded/{file_name}.{mp4 || webm}`
-
-
-
-## Special Thanks
-
-Many thanks to @insin for his project [isomorphic-lab](https://github.com/insin/isomorphic-lab) which was heavily used as reference for building the app skeleton.
