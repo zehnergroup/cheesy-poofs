@@ -20,14 +20,14 @@ var config = {
     title: 'zg-site',
     description: 'The front-end and middleware tier for the ZehnerGroup site',
 
-    serverSideBasePath: 'http://localhost:8003',
+    serverSideBasePath: 'http://localhost:8004',
   },
 
   marty: {
     fetchTimeout: {
       $filter: 'env',
       prod: 1000,
-      $default: 15000
+      $default: 1000
     }
   },
 

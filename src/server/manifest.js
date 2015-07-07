@@ -29,6 +29,7 @@ var manifest = {
     },
     './src/server/hello': {},
     './src/server/assets': {},
+    './src/server/api/test': {},
     './src/server/marty': {
       routes: path.join(__dirname, '../client/app/routes'),
       serverSideBaseUrl: AppConfig.get('/api/serverSideBasePath'),
