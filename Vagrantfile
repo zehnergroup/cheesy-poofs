@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
       # and therefore are not very useful here
       d.remains_running = true
       d.ports = [
-        "8004:8003",    # main application port
+        "8004:8004",    # main application port
         "8384:8383",    # app debugger web port
         "5354:5353",    # app debugger socket port
         "35729:35729",  # live-reload server
