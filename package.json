@@ -5,9 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "npm run test-server",
-    "test-client": "lab -v --ignore window,document,regeneratorRuntime,jQuery,_babelPolyfill,core,Reflect test/client/",
-    "test-server": "lab -v -t 50 --ignore __core-js_shared__,Formsy,regeneratorRuntime,Reflect,core,_babelPolyfill,input_char,self,Response,XMLHttpRequest,fetch,Headers,Request test/server/",
     "gulp": "./node_modules/.bin/gulp"
   },
   "author": "ZehnerGroup",

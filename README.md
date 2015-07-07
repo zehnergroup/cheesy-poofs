@@ -168,13 +168,3 @@ export DEBUGGER=true
 Once the app has been started with the Debugger turned on, you can connect to the debugger at the following URL:
 
 http://docker.local:8383/debug?ws=docker.local:8383&port=5353
-
-#### Testing
-
-The application is being tested using the [Lab](https://github.com/hapijs/lab) testing framework. All modules added to the app should have corrisponding tests produced for them.
-
-To run tests, run the following command from inside the container:
-
-```bash
-npm test
-```
