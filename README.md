@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/zehnergroup/cheesy-poofs/master/assets/img/cheesy-poofs_1024.png" width="300" height="300" />
+<img src="https://raw.githubusercontent.com/zehnergroup/cheesy-poofs/master/assets/img/cheesy-poofs_1024.png" width="500" height="423" />
 
 # Cheesy Poofs
 
