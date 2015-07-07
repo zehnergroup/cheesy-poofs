@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/zehnergroup/cheesy-poofs/master/assets/img/cheesy-poofs_1024.png" width="300" height="300" />
+
 # Cheesy Poofs
 
 This boilerplate / project starter combines React + Marty (Flux) + Hapi + Docker. This full stack frameworks support React's powerful isomorphic capabilities to do server side rendering of the React based client side app. For both development and deployment, the stack has been built to run inside a Docker container. Have fun!
