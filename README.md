@@ -101,7 +101,7 @@ vagrant up
 
 #### Access app
 
-You should now be able to access the hello world module that the skeleton ships with by going to http://docker.local:8003/hello.
+You should now be able to access the hello world module that the skeleton ships with by going to http://docker.local:8004/.
 
 #### Get your container ID
 
@@ -167,4 +167,4 @@ export DEBUGGER=true
 
 Once the app has been started with the Debugger turned on, you can connect to the debugger at the following URL:
 
-http://docker.local:8383/debug?ws=docker.local:8383&port=5353
+http://docker.local:8383/debug?ws=docker.local:8384&port=5354
