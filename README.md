@@ -96,7 +96,7 @@ Take care not to put env var declarations in the Vagrantfile, as these are not s
 From the project root, run:
 
 ```bash
-vagrant up
+vagrant up --no-parallel
 ```
 
 #### Access app
