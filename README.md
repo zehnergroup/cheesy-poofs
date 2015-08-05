@@ -167,4 +167,4 @@ export DEBUGGER=true
 
 Once the app has been started with the Debugger turned on, you can connect to the debugger at the following URL:
 
-http://docker.local:8383/debug?ws=docker.local:8384&port=5354
+http://docker.local:8384/debug?ws=docker.local:8384&port=5354
