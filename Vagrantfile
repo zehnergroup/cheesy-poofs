@@ -10,7 +10,8 @@ Vagrant.configure("2") do |config|
   config.vm.define "frontend" do |v|
 
     v.vm.synced_folder ".", "/opt/app", type: "rsync",
-      rsync__exclude: get_ignored_files()
+      rsync__exclude: get_ignored_files(),
+      rsync__args: ["--verbose", "--archive", "--delete", "--copy-links"]
 
     v.vm.provider "docker" do |d|
       d.vagrant_machine = ENV["DOCKER_HOST_VAGRANT_NAME"]
