@@ -13,7 +13,7 @@ RUN apt-get update \
 # install some global node modules
 RUN npm install -g \
   nodemon@1.3.7 \
-  node-inspector@0.10.0 \
+  node-inspector@0.11.1 \
   lab@5.4.0
 
 # use changes to dependency files to force Docker not to use the cache
