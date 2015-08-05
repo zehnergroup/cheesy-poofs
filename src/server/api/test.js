@@ -3,7 +3,7 @@ import path from 'path'
 import AppConfig from '../config'
 import Promise from 'bluebird'
 import fs from 'fs'
-import yaml from'js-yaml'
+import yaml from 'js-yaml'
 
 // fs = Promise.promisifyAll(fs);
 
